@@ -1,10 +1,3 @@
-:toc: macro
-:toc-title:
-:toclevels: 99
-
-# Table of Contents
-toc::[]
-
 # CRUD web application with responsive design
 This project is a simple CRUD web application with responsive design, using Java + Spring Framework + JPA + JSF and other technologies.
 
