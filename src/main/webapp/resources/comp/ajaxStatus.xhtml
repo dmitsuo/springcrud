@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:p="http://primefaces.org/ui"      
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <!-- INTERFACE -->
+    <cc:interface>
+        <cc:attribute name="style" default="position: fixed; top: 40%; left: 35%; background-color: #ffffff; z-index: 1000"/>        
+    </cc:interface>
+
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+        <p:ajaxStatus onstart="PF('ajax_status_dlg').show();" onsuccess="PF('ajax_status_dlg').hide();"/>
+
+        <p:dialog modal="true" widgetVar="ajax_status_dlg" styleClass="mydlg"
+                  header="#{i18n['ajax.wait']}" resizable="false"
+                  draggable="false" closable="false">  
+            <h:graphicImage value="/resources/img/ajaxloadingbar.gif" />
+            <br/>
+            <p:spacer width="3"/><h:outputText value="#{i18n['ajax.processing']}"/>
+        </p:dialog>
+    </cc:implementation>
+
+</html>

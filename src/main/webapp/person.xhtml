@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:comp="http://xmlns.jcp.org/jsf/composite/comp">
+    <h:head>
+        <f:facet name="first">
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+        </f:facet>        
+        <title>#{i18n['person.crudpage.title']}</title>
+        <h:outputStylesheet library="css" name="crud.css" />
+    </h:head>
+    <h:body>        
+        <h:form id="form1">
+
+            <comp:messageDialog/>
+            <comp:ajaxStatus/>
+
+            <h1>#{i18n['person.crudpage.title']}</h1>
+
+            <p:commandButton action="#{personJsfBean.createNewCrudObj}" value="#{i18n['person.crudpage.newbutton']}" process="@this" update="pgForm" resetValues="true"/>
+
+            <p:fieldset legend="#{i18n['person.crudpage.formtitle']}" styleClass="myfieldset">
+                <h:panelGroup id="pgForm" layout="block" styleClass="ui-g">
+                    <div class="ui-g-12 ui-lg-1">
+                        <p:outputLabel value="#{i18n['person.id']}"/>
+                        <p:inputText id="id" value="#{personJsfBean.person.id}" readonly="true"/>
+                    </div>                
+                    <div class="ui-g-12 ui-lg-6">
+                        <p:outputLabel value="#{i18n['person.name']}" for="name"/>
+                        <p:inputText id="name" value="#{personJsfBean.person.name}" required="true" requiredMessage="#{i18n['person.name.emptymessage']}"/>
+                    </div>
+                    <div class="ui-g-12 ui-lg-5">
+                        <p:outputLabel value="#{i18n['person.email']}" for="email"/>
+                        <p:inputText id="email" value="#{personJsfBean.person.email}" required="true" requiredMessage="#{i18n['person.email.emptymessage']}"/>
+                    </div>
+                    <div class="ui-g-12 ui-lg-1">
+                        <p:commandButton id="saveBtn" action="#{personJsfBean.save}" value="#{i18n['crud.savebutton.label']}" process="pgForm" update="pgForm pgList"/>
+                    </div>                    
+                    <p:defaultCommand target="saveBtn" scope="pgForm"/>
+                </h:panelGroup>
+            </p:fieldset>
+
+            <h:panelGroup id="pgList" layout="block">
+                <p:fieldset legend="#{i18n['person.crudpage.listtitle']}" styleClass="myfieldset">
+                    <p:dataTable var="p" value="#{personJsfBean.people}" emptyMessage="#{i18n['person.crudpage.emptylist']}" styleClass="mydatatable">
+                        <p:column headerText="#{i18n['person.id']}" priority="3">
+                            <h:outputText value="#{p.id}" />
+                        </p:column>
+
+                        <p:column headerText="#{i18n['person.name']}" priority="0">
+                            <h:outputText value="#{p.name}" />
+                        </p:column>
+                        
+                        <p:column headerText="#{i18n['person.email']}" priority="2">
+                            <h:outputText value="#{p.email}" />
+                        </p:column>                        
+
+                        <p:column headerText="#{i18n['crud.actioncolumn']}" priority="0" style="text-align: center; width: 70px">
+                            <p:commandLink id="editLink" action="#{personJsfBean.editCrudObj(p)}" resetValues="true"
+                                           title="#{i18n['crud.editbutton.label']}" style="top: 1px;position:relative;"
+                                           update="form1:pgForm" process="@this" oncomplete="window.scrollTo(0,0);">                                
+                                <i class="fa fa-pencil-square-o myactionlink myeditlink"></i>
+                            </p:commandLink>                            
+                            <p:commandLink id="deleteLink" action="#{personJsfBean.deleteCrudObj(p)}" resetValues="true"
+                                           title="#{i18n['crud.deletebutton.label']}" style="text-decoration: none"
+                                           update="form1:pgForm form1:pgList" process="@this">                                
+                                <i class="fa fa-trash-o myactionlink mydellink"></i>
+                                <p:confirm header="#{i18n['confirmdlg.title']}" message="#{i18n['confirmdlg.message']}" icon="ui-icon-alert"/>
+                            </p:commandLink>                            
+                        </p:column>                        
+                    </p:dataTable>
+
+                    <p:confirmDialog global="true" styleClass="mydlg">
+                        <p:commandButton value="#{i18n['confirmdlg.yes']}" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+                        <p:commandButton value="#{i18n['confirmdlg.no']}" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
+                    </p:confirmDialog>                    
+                </p:fieldset>
+            </h:panelGroup>
+        </h:form>
+    </h:body>
+</html>

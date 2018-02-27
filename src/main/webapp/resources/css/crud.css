@@ -1,0 +1,84 @@
+body {
+    font-family: "latoregular","Trebuchet MS",Arial,Helvetica,sans-serif;
+}
+
+.ui-g input {
+    width: 100%;
+}
+
+.ui-fieldset.myfieldset {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.mydlg .ui-dialog-titlebar {
+    padding: 0;
+    margin: 0;    
+    background-color: #ebedf0!important;
+}
+
+.mydlg .ui-dialog-title {    
+    margin: 7px 0 7px 10px;
+    font-size: 1em!important;
+}
+
+.mymsg .ui-messages-info {
+    color: #3a87ad;
+    background-color: #d9edf7;
+    border-color: #bce8f1;    
+}
+
+.mymsg .ui-messages-info-summary, 
+.mymsg .ui-messages-warn-summary, 
+.mymsg .ui-messages-error-summary, 
+.mymsg .ui-messages-fatal-summary, 
+.mymsg .ui-message-info-summary, 
+.mymsg .ui-message-warn-summary, 
+.mymsg .ui-message-error-summary, 
+.mymsg .ui-message-fatal-summary {
+    margin-left: 5px;
+    font-weight: normal;    
+}
+
+@media (max-width: 640px) {
+    .mymsg .ui-messages-info, 
+    .mymsg .ui-messages-warn, 
+    .mymsg .ui-messages-error, 
+    .mymsg .ui-messages-fatal {
+        margin: 5px 0;
+        padding: 10px 3px;        
+    }    
+}
+
+.myactionlink {
+    margin: 0 6px;
+    font-size: 1.5em;
+}
+
+.mydatatable th {
+    width: 100%;    
+}
+
+.mydatatable .ui-datatable-odd {    
+    background: none repeat scroll 0 0 #EFEBDE;
+}
+
+.mydatatable .ui-datatable-even {    
+    background: none repeat scroll 0 0 #FFFFFF;
+}
+
+.mydellink {
+    color: #ff0000;
+}
+
+.myeditlink {
+    color: #0000ff;
+}
+
+.mydlg .ui-dialog-buttonpane.ui-dialog-footer {
+    text-align: right;
+}
+
+.mydlg .ui-icon.ui-confirm-dialog-severity {
+    display: none;
+}

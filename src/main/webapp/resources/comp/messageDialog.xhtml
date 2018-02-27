@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:p="http://primefaces.org/ui"      
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <!-- INTERFACE -->
+    <cc:interface>
+        <cc:attribute name="dlgStyle" default="max-width: 890px"/>        
+        <cc:attribute name="msgDivStyle" default="max-height: 500px; overflow: auto"/>        
+    </cc:interface>
+
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+        <p:outputPanel autoUpdate="true">
+            <p:dialog id="dlg_msg" header="#{i18n['messagedialog.title']}" widgetVar="dlgMsg" responsive="true"
+                      visible="#{not empty facesContext.messageList}" style="#{cc.attrs.dlgStyle}" styleClass="mydlg"
+                      closable="true" closeOnEscape="true" modal="true">
+                <h:panelGroup layout="block" id="pnl_msg_dlg">
+                    <div style="#{cc.attrs.msgDivStyle}">
+                        <p:messages id="dialogMsg" escape="false" styleClass="mymsg"/>
+                    </div>
+                    <center>
+                        <p:commandButton id="dlgMsgOkBtn" value="OK" type="button" onclick="PF('dlgMsg').hide();"/>
+                    </center>                    
+                </h:panelGroup>
+            </p:dialog>                    
+        </p:outputPanel>
+    </cc:implementation>
+</html>

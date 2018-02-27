@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!-- =========== FULL CONFIGURATION FILE ================================== -->
+
+<faces-config version="2.3"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd">
+    <application>
+        
+        <locale-config>
+            <default-locale>pt_BR</default-locale>
+            <supported-locale>pt</supported-locale>  
+            <supported-locale>en</supported-locale>  
+            <supported-locale>en_US</supported-locale>  
+        </locale-config>                  
+       
+        <resource-bundle>
+            <base-name>i18n</base-name>
+            <var>i18n</var>
+        </resource-bundle>        
+        
+        <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>        
+
+    </application>
+    
+    <factory>
+        <exception-handler-factory>com.acme.springcrud.web.exception.JsfExceptionHandlerFactory</exception-handler-factory>
+    </factory>
+    
+</faces-config>
