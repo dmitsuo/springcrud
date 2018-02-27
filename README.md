@@ -13,6 +13,7 @@ Table of Contents
       * [How to run this project](#how-to-run-this-project)
       * [Embedded H2 database console](#embedded-h2-database-console)
 
+
 # CRUD web application with responsive design
 This project is a simple CRUD web application with responsive design, using Java + Spring Framework + JPA + JSF and other technologies.
 
