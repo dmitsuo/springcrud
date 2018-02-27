@@ -1,3 +1,18 @@
+Table of Contents
+=================
+   * [CRUD web application with responsive design](#crud-web-application-with-responsive-design)
+      * [Frameworks and Tools used](#frameworks-and-tools-used)
+         * [Language](#language)
+         * [Inversion of Control / Dependency Injection / Middleware](#inversion-of-control--dependency-injection--middleware)
+         * [Persistence](#persistence)
+         * [Presentation / User Interface](#presentation--user-interface)
+         * [Application Server (Servlet Container, actually)](#application-server-servlet-container-actually)
+         * [Dependency Management and Build Tool](#dependency-management-and-build-tool)
+         * [IDE](#ide)
+      * [Purpose](#purpose)
+      * [How to run this project](#how-to-run-this-project)
+      * [Embedded H2 database console](#embedded-h2-database-console)
+
 # CRUD web application with responsive design
 This project is a simple CRUD web application with responsive design, using Java + Spring Framework + JPA + JSF and other technologies.
 
