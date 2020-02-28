@@ -71,7 +71,9 @@ This project comes with a built-in SQL client console, allowing you to access H2
 1. Run the project (step 6 above) and open the following URL in your browser: http://localhost:8080/springcrud/h2console
 2. Enter "**jdbc:h2:~/h2-data/springcrud**" in the "**JDBC URL**" field and click "**Connect**" button, as shown below
 ![H2 Console parameters](how-to-configure/06-h2-console.png)
+
 3. You can execute any SQL command to show table data, as shown below
+
 ![H2 Console SQL](how-to-configure/07-h2-console.png)
 
 

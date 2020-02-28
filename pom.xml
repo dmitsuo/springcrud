@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.acme</groupId>
@@ -9,13 +8,13 @@
 
     <name>springcrud</name>
     <url>http://maven.apache.org</url>
-    
-    <properties>        
+
+    <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <springframework.version>4.3.13.RELEASE</springframework.version>
         <hibernate.version>5.2.12.Final</hibernate.version>
         <hibernate-validator.version>6.0.7.Final</hibernate-validator.version>
-    </properties>    
+    </properties>
 
     <dependencies>
         <!-- Servlet and JSF -->
@@ -35,8 +34,8 @@
             <groupId>org.glassfish</groupId>
             <artifactId>javax.faces</artifactId>
             <version>2.3.2</version>
-        </dependency>        
-        
+        </dependency>
+
         <!-- CDI -->
         <dependency>
             <groupId>org.jboss.weld.servlet</groupId>
@@ -47,8 +46,8 @@
             <groupId>org.jboss</groupId>
             <artifactId>jandex</artifactId>
             <version>2.0.3.Final</version>
-        </dependency>        
-        
+        </dependency>
+
         <!-- JPA, Hibernate, H2 Database and DBCP -->
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -74,12 +73,12 @@
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
             <version>1.4</version>
-        </dependency>                      
-       
+        </dependency>
+
         <!-- Primefaces and OmniFaces -->
-        <dependency>  
-            <groupId>org.primefaces</groupId>  
-            <artifactId>primefaces</artifactId>  
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
             <version>6.1</version>
         </dependency>
         <dependency>
@@ -91,13 +90,13 @@
             <groupId>org.primefaces.extensions</groupId>
             <artifactId>primefaces-extensions</artifactId>
             <version>6.1.1</version>
-        </dependency>   
+        </dependency>
         <dependency>
             <groupId>org.omnifaces</groupId>
             <artifactId>omnifaces</artifactId>
             <version>2.6.7</version>
-        </dependency>                                  
-       
+        </dependency>
+
         <!-- Spring Framework -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -108,7 +107,7 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
             <version>${springframework.version}</version>
-        </dependency>        
+        </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
@@ -118,40 +117,40 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
             <version>${springframework.version}</version>
-        </dependency>        
+        </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aspects</artifactId>
             <version>${springframework.version}</version>
         </dependency>
-       
+
         <!-- Other libs -->
         <dependency>
             <groupId>com.lowagie</groupId>
             <artifactId>itext</artifactId>
             <version>2.1.7</version>
         </dependency>
-        
+
     </dependencies>
-    
+
     <repositories>
-        <!-- Alternate maven repo -->    
-        <repository>
+        <!-- Alternate maven repo -->
+        <!-- <repository>
             <id>codelds</id>
             <url>https://code.lds.org/nexus/content/groups/main-repo</url>
-        </repository>      
+        </repository>       -->
         <repository>
             <id>prime-repo</id>
             <name>PrimeFaces Maven Repository</name>
             <url>http://repository.primefaces.org</url>
             <layout>default</layout>
         </repository>
-    </repositories>    
+    </repositories>
 
     <build>
-        
+
         <finalName>${project.artifactId}</finalName>
-        
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -167,10 +166,10 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
                 <version>2.4.3</version>
-                <configuration>                    
+                <configuration>
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
-            </plugin>            
+            </plugin>
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.2.0</version>
@@ -180,8 +179,8 @@
                        This *.jar is useful to compile JasperReports *.jasper files, for example.
                     -->
                     <!--<attachClasses>true</attachClasses>-->
-                </configuration>                
-            </plugin>                              
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
@@ -199,14 +198,33 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>            
-        </plugins>  
-              
+            </plugin>
+
+            <plugin>
+                <!-- 
+                    To run: 
+
+mvn clean install org.codehaus.cargo:cargo-maven2-plugin:run -Dcargo.maven.containerId=tomcat9x -Dcargo.maven.containerUrl=http://mirror.nbtelecom.com.br/apache/tomcat/tomcat-9/v9.0.31/bin/apache-tomcat-9.0.31.zip
+                
+                -->
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven2-plugin</artifactId>
+                <version>1.7.6</version>
+                <configuration>
+                    <container>
+                        <containerId>tomcat9x</containerId>
+                        <type>embedded</type>
+                    </container>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
                 <filtering>false</filtering>
-            </resource>            
+            </resource>
             <resource>
                 <directory>src/main/resources-filter</directory>
                 <filtering>true</filtering>
