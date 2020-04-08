@@ -1,7 +1,7 @@
 #!/bin/bash
 
-DOCKER_HOST=myserver
-DOCKER_LOCAL_STORAGE=/var/docker-storage
+DOCKER_HOST=nitro
+DOCKER_LOCAL_STORAGE=/docker-storage
 
 APP_NAME=springcrud
 APP_VOLUME_DIR=$DOCKER_LOCAL_STORAGE/$APP_NAME
